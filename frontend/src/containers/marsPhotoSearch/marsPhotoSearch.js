@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
+import { Button } from 'reactstrap';
 
 // search for photos
 // inputs:
@@ -18,17 +19,21 @@ class MarsPhotoSearch extends Component {
       }
     };
   }
-  async componentDidMount() {
+  async getMarsData() {
     const query = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?${queryString.stringify(
-      { sol: 2438, camera: 'fhaz' }
+      { sol: 2438, camera: 'fhaz', api_key: process.env.NASA_API_KEY }
     )}`;
-    console.log(query);
     const res = await fetch(query);
     const data = await res.json();
-    console.log(data);
+    return data;
   }
   render() {
-    return <h1>imma component</h1>;
+    return (
+      <>
+        <h1>imma component</h1>
+        <Button onClick={() => this.getMarsData()}>GET!</Button>
+      </>
+    );
   }
 }
 
