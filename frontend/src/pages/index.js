@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import MarsPhotoSearch from '../components/marsPhotoSearch/marsPhotoSearch';
+import MarsPhotoSearch from '../containers/marsPhotoSearch/marsPhotoSearch';
 
 const IndexPage = () => (
   <Layout>
