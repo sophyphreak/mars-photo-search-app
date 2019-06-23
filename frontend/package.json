@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "formik": "^1.5.7",
     "gatsby": "^2.9.4",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -17,7 +19,8 @@
     "query-string": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
     "husky": "^2.4.1",
