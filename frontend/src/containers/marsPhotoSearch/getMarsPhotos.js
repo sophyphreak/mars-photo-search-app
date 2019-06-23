@@ -1,12 +1,12 @@
 import queryString from 'query-string';
+import axios from 'axios';
 
-const getMarsData = async ({ sol, camera }) => {
+const getMarsPhotos = async ({ sol, camera }) => {
   const query = getQueryString({ sol, camera });
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?${query}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(data);
-  return data;
+  const res = await axios(url);
+  const photos = res.data.photos;
+  return photos;
 };
 
 const getQueryString = ({ sol, camera }) => {
@@ -29,4 +29,4 @@ const getQueryString = ({ sol, camera }) => {
   return query;
 };
 
-export default getMarsData;
+export default getMarsPhotos;

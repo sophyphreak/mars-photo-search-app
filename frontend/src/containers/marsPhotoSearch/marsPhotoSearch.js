@@ -1,7 +1,8 @@
-import React from 'react';
-import getMarsData from './getMarsData';
+import React, { useState } from 'react';
+import getMarsPhotos from './getMarsPhotos';
 import initialValues from './initalValues';
 import FormikForm from '../../components/formikForm/formikForm';
+import PhotoList from '../../components/photoList/photoList';
 // search for photos
 // inputs:
 //    Sol (mission day)
@@ -9,13 +10,21 @@ import FormikForm from '../../components/formikForm/formikForm';
 // user clicks "find photos"
 //
 
-const MarsPhotoSearch = () => (
-  <FormikForm
-    initialValues={initialValues}
-    onSubmit={({ sol, camera }, { setSubmitting }) =>
-      getMarsData({ sol, camera }) && setSubmitting(false)
-    }
-  />
-);
+const MarsPhotoSearch = () => {
+  const [photoList, setPhotoList] = useState([]);
+  return (
+    <>
+      <FormikForm
+        initialValues={initialValues}
+        onSubmit={async ({ sol, camera }, { setSubmitting }) => {
+          const newPhotoList = await getMarsPhotos({ sol, camera });
+          setPhotoList(newPhotoList);
+          setSubmitting(false);
+        }}
+      />
+      <PhotoList photoList={photoList} />
+    </>
+  );
+};
 
 export default MarsPhotoSearch;
