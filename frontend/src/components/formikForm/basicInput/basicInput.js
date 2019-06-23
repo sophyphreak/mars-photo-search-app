@@ -1,11 +1,13 @@
 import React from 'react';
 import { Field } from 'formik';
-import { Label, Input } from 'reactstrap';
+import { Label, Input, FormFeedback } from 'reactstrap';
 
 const BasicInput = ({
   componentName,
   label = '',
   type = 'text',
+  error,
+  touched,
   autoFocus = false,
   placeholder = ''
 }) => (
@@ -16,9 +18,11 @@ const BasicInput = ({
       type={type}
       name={componentName}
       tag={Field}
+      invalid={error && touched}
       autoComplete="off"
       placeholder={placeholder}
     />
+    <FormFeedback>{error}</FormFeedback>
   </>
 );
 

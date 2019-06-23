@@ -10,12 +10,12 @@ const FormikForm = props => (
     validationSchema={props.validationSchema}
     onSubmit={props.onSubmit}
   >
-    {({ isSubmitting }) => (
+    {({ errors, touched, isSubmitting }) => (
       <Form>
         <FormGroup>
           <Col sm="12" md={{ size: 8, offset: 2 }}>
             <input type="hidden" value="for disrupting autocomplete" />
-            <SolInput />
+            <SolInput error={errors.sol} touched={touched.sol} />
             <br />
             <CameraInput />
             <br />
