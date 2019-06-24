@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const getMarsPhotos = async ({ sol, camera }) => {
   const query = getQueryString({ sol, camera });
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?${query}`;
+  const url = `https://mars-photo-search-api.andrew-horn-portfolio.life?${query}`;
   const res = await axios(url);
   const photos = res.data.photos;
   return photos;
