@@ -18,3 +18,9 @@ Dependencies:
  - prettier
  - husky
  - pretty-quick
+
+To build:
+Backend
+ - Push to heroku or heroku-like platform like dokku.
+Frontend
+ - Push to netlify or similar service.
